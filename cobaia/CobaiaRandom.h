@@ -1,5 +1,8 @@
 #include <iostream>
 
+#include <thread>
+#include <mutex>
+
 #include <Rsyn/Session>
 #include <Rsyn/PhysicalDesign>
 
@@ -10,6 +13,7 @@ private:
 	Rsyn::Design design;
 	Rsyn::Module module;
 	Rsyn::PhysicalDesign phDesign;
+	std::mutex _lock;
 
 	void random_initial_placement();
 	
@@ -18,6 +22,8 @@ private:
 	// void swap_cells(/*a_cell, b_cell*/);
 	
 	void expecto_patronum();
+
+	void swap();
 	
 public:
 	
